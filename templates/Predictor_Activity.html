@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+      body {
+       background-image: url('../Images/drawable/grass_bac.png');
+  margin: 0;
+  background-size: cover;
+    background-position: center;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: #f2f2f2;
+  color: #fff;
+  padding: 15px;
+   text-align: center;
+}
+
+nav {
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li.user {
+  float: right;
+  color:black;
+  text-align: center;
+}
+
+nav ul li a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav ul li a:hover {
+  background-color: #ddd;
+}
+
+nav ul li img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+nav ul li h1 {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 50px;
+}
+
+
+.username {
+
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 500px;
+
+        width: 50%;
+        margin: center;
+
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .header img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .points {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .team {
+    display: flex;
+    align-items: center;
+  }
+
+  .card {
+  display: inline-block;
+  text-align: center;
+  background-color: #F8F8F8;
+  border-radius: 25px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  margin: 25px;
+  padding: 20px;
+
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  height: 64px;
+  margin-right: 20px;
+  width: 64px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-points {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  width: 64px;
+}
+
+.match-details {
+  display: flex;
+}
+
+.team-logo {
+  border-radius: 50%;
+  height: 60px;
+  margin-top: 10px;
+  width: 60px;
+}
+
+.match-date {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.match-time {
+  font-size: 15px;
+  text-align: center;
+}
+
+.match-score {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-score {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-right: 10px;
+  text-align: center;
+  width: 64px;
+}
+.home_input {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-right: 10px;
+  text-align: center;
+  width: 64px;
+}
+.away_input {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-right: 10px;
+  text-align: center;
+  width: 64px;
+}
+.away-score {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-left: 10px;
+  text-align: center;
+  width: 64px;
+}
+.card-body {
+  display: inline-block;
+  text-align: center;
+}
+.left{
+
+        float: center;
+}
+
+.right{
+background-color:white;
+width: 50%;
+float:center;
+
+}
+
+		.table {
+float:center;
+		background-color:#FBE3D1;
+			border-collapse: collapse;
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+			text-align: center;
+			font-size: 16px;
+		}
+		th, td {
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+
+		.list-item {
+			display: flex;
+			align-items: center;
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+		.list-item img {
+			width: 50px;
+			height: 50px;
+			object-fit: cover;
+			border-radius: 50%;
+			margin-right: 10px;
+		}
+		.list-item p {
+			margin: 0;
+		}
+		.profile.picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+
+  border-radius: 30px;
+
+  font-size: 24px;
+  border: none;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+}
+
+.fab:hover {
+  transform: scale(1.1);
+
+}
+
+.fab img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.fab i {
+  margin-top: 12px;
+}
+
+
+	</style>
+
+
+    </style>
+</head>
+<body>
+<div class="left">
+ <ul >
+       {% for item in items.games %}
+
+        <div class="card">
+
+  <div class="card-body">
+    <div class="match-details">
+      <div class="home-team">
+        <img src='{{item.home_team.picture}}' alt="Home team logo" class="team-logo">
+
+      </div>
+        <div class="match-score">
+      <form method="POST" action="{{ url_for('show_item', item_id=items.country ~ '_' ~ items.sport_Type ~ '_' ~ items.dealer ~ '_' ~ items.tour_name) }}">
+  <input type="hidden" name="card_number" value="{{ loop.index }}">
+          <div class="away-score">
+    <input onchange="this.form.submit()" class="home_input" type="number" value="{{ item.bets[user].score_home_team_bet }}" name="home_score">
+  </div>
+</form>
+<form method="POST" action="{{ url_for('show_item', item_id=items.country ~ '_' ~ items.sport_Type ~ '_' ~ items.dealer ~ '_' ~ items.tour_name) }}">
+  <input type="hidden" name="card_number" value="{{ loop.index }}">
+  <div class="away-score">
+    <input onchange="this.form.submit()" class="away_input" type="number" value="{{ item.bets[user].score_away_team_bet }}" name="away_score">
+  </div>
+</form>
+
+
+
+    </div>
+      <div class="away-team">
+        <img src='{{item.away_team.picture}}' alt="Away team logo" class="team-logo">
+      </div>
+    </div>
+    <div>
+      <h3>home team ------------ away team</h3>
+
+    </div>
+  </div>
+    <div>
+        <h1></h1>
+    </div>
+    <div class="team-date">
+          <div class="match-date">'{{item.last_date}}'</div>
+           <a  class="btn btn-primary">View Details</a>
+
+        </div>
+</div>
+        {% endfor %}
+  </ul>
+    </div>
+<div class="right">
+  <table class="table">
+    <caption>Table Title</caption>
+    <thead>
+      <tr>
+           <th>Profile Picture</th>
+        <th>Competitor</th>
+        <th>Score</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items.predictors %}
+      <tr>
+          <td><img class="profile picture" src='{{item.picture}}' alt="Profile Picture"></td>
+        <td>1  '{{item.username}}' </td>
+        <td>'{{item.total_points}}'</td>
+
+      </tr>
+   {% endfor %}
+    </tbody>
+  </table>
+</div>
+<form action="/card/{{items.country ~ '_' ~ items.sport_Type ~ '_' ~ items.dealer ~ '_' ~ items.tour_name}}" method="post">
+  <div class="fab-container">
+    <button class="fab" type="submit">
+      <img src="../Images/drawable/soccer_bet.png" alt="Soccer Bet Icon">
+    </button>
+  </div>
+</form>
+
+
+
+
+</body>
+</html>

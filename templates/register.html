@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <style>
+      body {
+       background-size: cover;
+    background-position: center;
+        background-color: #fff;
+        font-family: sans-serif;
+        font-size: 16px;
+          background-image: url('../Images/drawable/basketball_bac.png');
+        line-height: 1.5;
+      }
+
+      h1 {
+        margin: 0;
+        padding: 1em 0;
+        text-align: center;
+      }
+
+      .container {
+        display: flex;
+        width: 20%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+       margin: 0 auto;
+background-color: #fff;
+        padding: 2em;
+        border: 2px solid #ccc;
+        border-radius: 1em;
+      }
+
+
+
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 0.5em;
+        margin-bottom: 1em;
+        border: 2px solid #ccc;
+        border-radius: 0.5em;
+      }
+
+      button {
+        display: block;
+        margin: 1em auto;
+        padding: 0.5em 1em;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 1em;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body >
+    <h1>Register</h1>
+    <div class="container" >
+       <form action="{{ url_for('register') }}" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+
+      <button class="btn" onclick="location.href='{{ url_for("register") }}'">Register</button>
+  </form>
+    </div>
+  </body>
+</html>

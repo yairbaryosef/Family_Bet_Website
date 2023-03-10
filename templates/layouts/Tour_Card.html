@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>CardView example</title>
+    <style>
+      body {
+   margin: 0;
+    padding: 0;
+    background-image: url('../Images/drawable/basketball_bac.png');
+    background-size: cover;
+    background-position: center;
+}
+.container {
+  display: flex;
+     background-image: url('../Images/drawable/basketball_bac.png');
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  width: 80%;
+  max-width: 600px;
+  height: 204px;
+  margin: 25px;
+  border-radius: 25px;
+  background-color: #ff4081;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+.card-image {
+  width: 64px;
+  background-image: url('path/to/trophy.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15px;
+}
+.card-header h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff5ee;
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 0 0 25px 25px;
+}
+.card-content .inner-card {
+  background-color: #ffffff;
+  height: 100%;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+.card-content .inner-card .card-row {
+  display: flex;
+  align-items: center;
+}
+.card-content .inner-card .card-row img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-image: url('../Images/drawable/basketball_bac.png');
+  margin: 10px;
+}
+.card-content .inner-card .card-row .date {
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ff4081;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-content .inner-card .card-row .time {
+  font-size: 15px;
+  color: #ff4081;
+  text-align:
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-image"></div>
+        <div class="card-header">
+          <h3>subject</h3>
+          <p>15</p>
+        </div>
+        <div class="card-content">
+          <div class="inner-card">
+            <div class="card-row">
+              <div class="home"></div>
+              <img src="../Images/drawable/trophy.png" alt="home team">
+              <div class="date">22/11/2022</div>
+              <div class="time">21:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

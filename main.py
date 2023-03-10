@@ -1,27 +1,60 @@
-# This is a sample Python script.
-from flask import Flask
-from firebase import Firebase
-app=Flask(__name__)
+from flask import Flask, render_template, request,send_from_directory
+from flask_cors import CORS
+from DataBase import Refrences, Files
+from Models.register import reg,entrance_
+from DataBase.FireStore import getTour,saveTour
+from Classes.Constants.constants import constants
+from Classes.Tournamet.Tournament import Tournament
+from Models.User_Activity import Predictor_Activity
+app = Flask(__name__)
+CORS(app)
+@app.route('/')
+def index():
+    try:
+     user=Files.read();
+     return render_template('main.html',user=user)
+    except Exception:
+     return render_template('main.html', user="user")
+@app.route('/card/<item_id>', methods=['GET', 'POST'])
+def show_item(item_id):
+    t = getTour(item_id)
+    tour_ = Tournament.json_to_tournament(t[constants.tournament()])
+    return Predictor_Activity(tour_)
+@app.route('/sendText', methods=['POST'])
+def send_text():
+    text = request.form['text']
+    print('Text changed to:', text)
+    # Perform some action with the new text
+    return 'OK'
+@app.route('/Images/<path:path>')
+def send_image(path):
+    return send_from_directory('Images', path)
 
-@app.route("/")
-def home():
-    firebase = Firebase(firebaseConfig)
-    return "hello world"
+@app.route('/entrance',methods=['GET', 'POST'])
+def entrance():
+    # Insert your code to handle the entrance button click here
+    return entrance_()
 
-if __name__=="__main__":
-    app.run()
+@app.route('/register',methods=['GET', 'POST'])
+def register():
+    # Insert your code to handle the entrance button click here
+    return reg()
 
-
-
-firebaseConfig = {
-        "apiKey": "AIzaSyCXihpxRXMPb6ZIVb9wl4mvG3IfW_hQKJQ",
-        "authDomain": "mula-82f9c.firebaseapp.com",
-        "databaseURL": "https://mula-82f9c-default-rtdb.firebaseio.com",
-        "projectId": "mula-82f9c",
-        "storageBucket": "mula-82f9c.appspot.com",
-        "messagingSenderId": "433864646392",
-        "appId": "1:433864646392:web:6617de372268f1ed5d650d",
-        "measurementId": "G-0V2VDZMBDD"
+@app.route('/register',methods=['GET', 'POST'])
+def register2():
+    # Insert your code to handle the entrance button click here
+    Refrences.is_User_Exist()
+    return reg()
 
 
-}
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    # Code for user login
+    return 'Login successful'
+
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0',port=80,debug=True)

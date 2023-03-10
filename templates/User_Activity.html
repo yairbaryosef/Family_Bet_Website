@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <style>
+      body {
+       background-image: url('../Images/drawable/grass_bac.png');
+  margin: 0;
+  background-size: cover;
+    background-position: center;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: #f2f2f2;
+  color: #fff;
+  padding: 15px;
+   text-align: center;
+}
+
+nav {
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li.user {
+  float: right;
+  color:black;
+  text-align: center;
+}
+
+nav ul li a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+nav ul li a:hover {
+  background-color: #ddd;
+}
+
+nav ul li img {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+nav ul li h1 {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 50px;
+}
+
+
+.username {
+
+  font-size: 30px;
+  font-weight: bold;
+
+}
+
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    max-width: 500px;
+
+        width: 50%;
+        margin: center;
+
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .header img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .points {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 5px 10px;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .team {
+    display: flex;
+    align-items: center;
+  }
+
+  .card {
+  display: inline-block;
+  text-align: center;
+  background-color: #F8F8F8;
+  border-radius: 25px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  margin: 25px;
+  padding: 20px;
+}
+
+.card-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-icon {
+  height: 64px;
+  margin-right: 20px;
+  width: 64px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-points {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+  width: 64px;
+}
+
+.match-details {
+  display: flex;
+}
+
+.team-logo {
+  border-radius: 50%;
+  height: 60px;
+  margin-top: 10px;
+  width: 60px;
+}
+
+.match-date {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.match-time {
+  font-size: 15px;
+  text-align: center;
+}
+
+.match-score {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-score {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-right: 10px;
+  text-align: center;
+  width: 64px;
+}
+
+.away-score {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: bold;
+  height: 64px;
+  line-height: 64px;
+  margin-left: 10px;
+  text-align: center;
+  width: 64px;
+}
+.card-body {
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+
+    </style>
+</head>
+  <body>
+    <header>
+  <nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Join Tournament</a></li>
+    <li><a href="#">Add Tournament</a></li>
+    <li><a href="#">Add Team</a></li>
+    <li class="user"><img src="../Images/drawable/trophy.png" alt="User Image" class="profile-image"><h1 class="username">User</h1></li>
+  </ul>
+</nav>
+
+    </header>
+    <main>
+
+
+
+  <ul>
+       {% for item in items %}
+        <div class="card">
+  <div class="card-header">
+    <img src='{{item.picture}}' alt="Trophy icon" class="card-icon">
+    <h3 class="card-title">'{{item.tour_name}}'</h3>
+    <div class="card-points">15</div>
+  </div>
+  <div class="card-body">
+    <div class="match-details">
+      <div class="home-team">
+        <img src='{{item.games[0].home_team.picture}}' alt="Home team logo" class="team-logo">
+
+      </div>
+        <div class="match-score">
+      <div class="home-score">'{{item.games[0].score_home_team}}'</div>
+      <div class="away-score">'{{item.games[0].score_away_team}}'</div>
+
+    </div>
+      <div class="away-team">
+        <img src='{{item.games[0].away_team.picture}}' alt="Away team logo" class="team-logo">
+      </div>
+    </div>
+
+  </div>
+    <div>
+        <h1></h1>
+    </div>
+    <div class="team-date">
+          <div class="match-date">'{{item.games[0].last_date}}'</div>
+           <a href="{{ url_for('show_item', item_id = item.country ~ '_' ~ item.sport_Type ~ '_' ~ item.dealer ~ '_' ~ item.tour_name) }}" class="btn btn-primary">View Details</a>
+
+        </div>
+</div>
+        {% endfor %}
+  </ul>
+</main>
+
+
+    </main>
+    <footer>
+      <p>&copy; 2023 - Family Bet</p>
+    </footer>
+  </body>
+</html>
